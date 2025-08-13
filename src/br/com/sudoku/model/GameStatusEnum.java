@@ -1,4 +1,7 @@
 package br.com.sudoku.model;
 
-public class GameStatusEnum {
+public enum GameStatusEnum {
+    ONGOING,
+    WON,
+    LOST
 }
