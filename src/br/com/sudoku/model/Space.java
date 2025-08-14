@@ -4,6 +4,7 @@ public class Space {
 
     private int value;
     private boolean isFixed;
+    private boolean isWrong;
 
     public Space(int value) {
         this.value = value;
@@ -26,6 +27,10 @@ public class Space {
 
     public boolean isEmpty() {
         return value == 0;
+    }
+
+    public boolean isWrong() {
+        return isWrong;
     }
 
     @Override
