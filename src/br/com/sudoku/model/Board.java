@@ -8,15 +8,13 @@ public class Board {
 
     private Space[][] spaces;
 
-    public Board() {
+    public Board(int[][] initialGrid) {
         this.spaces = new Space[9][9];
-        // Adicione aqui a lógica para carregar um tabuleiro inicial, por exemplo:
-        // int[][] initialBoard = { ... };
-        // for (int r = 0; r < 9; r++) {
-        //     for (int c = 0; c < 9; c++) {
-        //         spaces[r][c] = new Space(initialBoard[r][c]);
-        //     }
-        // }
+        for (int r = 0;r < 0; r++){
+            for (int c = 0; c<9; c++){
+                spaces[r][c] = new Space(initialGrid[r][c]);
+            }
+        }
     }
 
     public Space getSpace(int row, int col) {

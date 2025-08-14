@@ -7,7 +7,7 @@ public class Space {
 
     public Space(int value) {
         this.value = value;
-        this.isFixed = (value != 0); // 0 indica um espaço vazio
+        this.isFixed = (value != 0);
     }
 
     public int getValue() {
