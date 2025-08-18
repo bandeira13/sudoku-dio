@@ -10,8 +10,8 @@ public class Board {
 
     public Board(int[][] initialGrid) {
         this.spaces = new Space[9][9];
-        for (int r = 0;r < 0; r++){
-            for (int c = 0; c<9; c++){
+        for (int r = 0;r < 9; r++){
+            for (int c = 0; c< 9; c++){
                 spaces[r][c] = new Space(initialGrid[r][c]);
             }
         }
@@ -73,4 +73,17 @@ public class Board {
                 .toArray();
         System.out.println(String.format(BoardTemplate.BOARD_TEMPLATE, values));
     }
+    public void checkErrors(int[][] solution) {
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                Space s = spaces[r][c];
+                if (!s.isFixed() && s.getValue() != 0) {
+                    s.setWrong(s.getValue() != solution[r][c]);
+                } else {
+                    s.setWrong(false);
+                }
+            }
+        }
+    }
+
 }

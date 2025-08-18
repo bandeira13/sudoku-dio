@@ -32,6 +32,10 @@ public class Space {
     public boolean isWrong() {
         return isWrong;
     }
+    public void setWrong(boolean wrong) {
+        this.isWrong = wrong;
+    }
+
 
     @Override
     public String toString() {
