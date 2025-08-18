@@ -8,11 +8,11 @@ public class Board {
 
     private Space[][] spaces;
 
-    public Board(int[][] initialGrid) {
+    public Board(int[][] initialGrid , int[][] solutionGrid) {
         this.spaces = new Space[9][9];
         for (int r = 0;r < 9; r++){
             for (int c = 0; c< 9; c++){
-                spaces[r][c] = new Space(initialGrid[r][c]);
+                spaces[r][c] = new Space(initialGrid[r][c] , solutionGrid[r][c]);
             }
         }
     }
