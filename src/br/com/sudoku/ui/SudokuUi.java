@@ -44,10 +44,12 @@ public class SudokuUi extends JFrame {
                         public void insertUpdate(DocumentEvent e) {
                             updateBoardAndUi(r, c);
                         }
+
                         @Override
                         public void removeUpdate(DocumentEvent e) {
                             updateBoardAndUi(r, c);
                         }
+
                         @Override
                         public void changedUpdate(DocumentEvent e) {
                         }
@@ -86,18 +88,23 @@ public class SudokuUi extends JFrame {
     }
 
     private static class NumberFilter extends DocumentFilter {
+
         @Override
         public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
-            if (string.matches("[1-9]")) {
+            if (string.matches("[1-9]") && fb.getDocument().getLength() == 0) {
                 super.insertString(fb, offset, string, attr);
             }
         }
 
         @Override
         public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
-            if (text.matches("[1-9]")) {
+            if (text.isEmpty()) {
                 super.replace(fb, offset, length, text, attrs);
-            } else if (text.isEmpty()) {
+                return;
+            }
+
+            String newString = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
+            if (newString.matches("[1-9]") && newString.length() == 1) {
                 super.replace(fb, offset, length, text, attrs);
             }
         }
